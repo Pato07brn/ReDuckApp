@@ -1,28 +1,40 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-//import {  } from '@expo/vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Feather';
+import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+
 import { useTheme } from '../theme/theme';
 
 export default function BtnTreino({ title, onPress }) {
-    const {colors} = useTheme()
+    const { colors } = useTheme()
     const styles = StyleSheet.create({
         button: {
-            backgroundColor: colors.Red1, // Cor vermelha para o botão
-            paddingVertical: 15,
-            paddingHorizontal: 30,
-            borderRadius: 5,
+            backgroundColor: colors.Red1,
+            paddingVertical: 20,
+            paddingHorizontal: 15,
+            borderRadius: 50,
+            marginVertical: 10,
             alignItems: 'center',
-            justifyContent: 'center',
+            maxWidth: '90%'
         },
         buttonText: {
-            color: colors.White, // Cor branca para o texto
-            fontSize: 16,
+            color: colors.White,
+            fontSize: 32,
             fontWeight: 'bold',
         },
+        div: {
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'row',
+            gap: 20
+        }
     });
+
     return (
         <TouchableOpacity style={styles.button} onPress={onPress}>
-            <Text style={styles.buttonText}>{title}</Text>
+            <View style={styles.div}>
+                    <Text style={styles.buttonText}>{title}</Text>
+                    <Icon name="folder-plus" size={50} color={colors.White} />
+            </View>
         </TouchableOpacity>
     );
 };

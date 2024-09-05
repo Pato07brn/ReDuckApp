@@ -1,23 +1,21 @@
 import React from 'react';
-import { Text, View, StyleSheet, ImageBackground } from "react-native";
-import { useTheme } from '../../theme/theme';
+import { View, StyleSheet } from "react-native";
+
 
 import Header from '../../components/header';
 import Container from '../../components/container';
 import BtnTreino from '../../components/btn-treino-novo';
+import Footer from '../../components/footer';
+
 
 export default function Home() {
-    const { theme, colors } = useTheme();
-
     return (
         <Container>
             <Header title={'FALA MEU PUTO'} />
-            <View style={[styles.container, { backgroundColor: colors.Black }]}>
+            <View style={styles.container}>
                 <BtnTreino title={"Novo Treino"} onPress={()=>{}}/>
-                <Text>
-                    Treino
-                </Text>
             </View>
+            <Footer/>
         </Container>
     )
 }
