@@ -5,20 +5,14 @@ import { useTheme } from '../theme/theme';
 export default function Container({ children }) {
     const { colors } = useTheme();
     const styles = StyleSheet.create({
-        background: {
+        imgDuck: {
             flex: 1,
             backgroundColor: colors.Black,
-        },
-        imgDuck: {
-            position: 'fixed',
-            top: '25%',
-            left: '10%'
         }
     });
     return (
-        <View style={styles.background}>
-            <ImageBackground style={styles.imgDuck} source={require('./../../assets/images/PATO_FUNDO.png')} />
+        <ImageBackground resizeMode='center' style={styles.imgDuck} source={require('./../../assets/images/PATO_FUNDO.png')}>
             {children}
-        </View>
+        </ImageBackground>
     )
 }
