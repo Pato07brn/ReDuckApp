@@ -6,6 +6,8 @@ import Header from '../../components/header';
 import Container from '../../components/container';
 import BtnTreino from '../../components/btn-treino-novo';
 import Footer from '../../components/footer';
+import ItemTreino from '../../components/item-treino';
+
 
 
 export default function Home() {
@@ -13,6 +15,7 @@ export default function Home() {
         <Container>
             <Header title={'FALA MEU PUTO'} />
             <View style={styles.container}>
+                <ItemTreino title={'TREINO A'} description={"DESCRIÇÃO: PEITO, OMBRO,BÍCEPS"} exerc={"EXERCÍCIOS: SUPINO RETO, SUPINO INCLINADO..."}/>
                 <BtnTreino title={"Novo Treino"} onPress={()=>{}}/>
             </View>
             <Footer/>
