@@ -12,7 +12,7 @@ export default function BtnTreino({ title, onPress }) {
             paddingVertical: 20,
             paddingHorizontal: 15,
             borderRadius: 50,
-            marginVertical: 10,
+            margin: 10,
             alignItems: 'center',
             maxWidth: '90%'
         },

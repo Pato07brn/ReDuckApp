@@ -6,8 +6,8 @@ export default function Header({title}) {
     const { colors } = useTheme();
     const styles = StyleSheet.create({
         container: {
-            paddingTop: 30, 
-            paddingHorizontal: 20,
+            paddingTop: 30,
+            width: "100%"
         },
         title: {
             fontSize: 45,

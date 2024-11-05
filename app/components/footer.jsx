@@ -7,14 +7,12 @@ export default function Footer() {
     const { colors } = useTheme();
     const styles = StyleSheet.create({
         container: {
-            paddingTop: 30,
-            paddingHorizontal: 20,
+            width: "100%",
             marginBottom: 20,
         },
         line: {
             height: 5,
             backgroundColor: colors.Red1,
-            marginTop: 5,
         },
         setings: {
             textAlign: 'center',

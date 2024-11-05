@@ -2,9 +2,10 @@
   "expo": {
     "name": "ReDuckApp",
     "slug": "ReDuckApp",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/favicon.png",
+    "favicon" :"./assets/images/decaptado.ico",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -17,14 +18,15 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/favicon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "title": "ReDuckApp",
+      "favicon": "./assets/images/decaptado.png"
     },
     "plugins": [
       "expo-router"

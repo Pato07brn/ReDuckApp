@@ -1,18 +1,28 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { useTheme } from '../theme/theme';
 
 export default function Container({ children }) {
     const { colors } = useTheme();
     const styles = StyleSheet.create({
-        imgDuck: {
+        container: {
             flex: 1,
+            width: "100%",
             backgroundColor: colors.Black,
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
+        img: {
+            width: "100%",
+            height: "100%",
+            position: 'absolute',
         }
     });
     return (
-        <ImageBackground resizeMode='center' style={styles.imgDuck} source={require('./../../assets/images/PATO_FUNDO.png')}>
+        <View style={styles.container} >
+            
+            <Image style={styles.img} resizeMode='contain' source={require('./../../assets/images/PATO_FUNDO.png')} />
             {children}
-        </ImageBackground>
+        </View>
     )
 }

@@ -9,8 +9,8 @@ export default function Container({ title, description, exerc }) {
             color: colors.White,
             backgroundColor: "rgba( 242, 125, 22, 0.7)",
             borderRadius: 50,
-            margin: "1.6em",
-            padding: "1.6em"
+            marginVertical: "1.6em",
+            paddingVertical: "1.6em"
         },
         title: {
             fontSize: size.Title,
