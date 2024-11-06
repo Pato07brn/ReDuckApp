@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { useTheme } from '../theme/theme';
 
-export default function Container({ title, description, exerc }) {
+export default function Item({ title, description, exerc }) {
     const { colors, size } = useTheme();
     const styles = StyleSheet.create({
         container: {

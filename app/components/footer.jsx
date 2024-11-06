@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTheme } from '../theme/theme';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Feather'
 
-export default function Footer() {
+export default function Footer({ children = <></> }) {
     const { colors } = useTheme();
     const styles = StyleSheet.create({
         container: {
@@ -13,6 +13,7 @@ export default function Footer() {
         line: {
             height: 5,
             backgroundColor: colors.Red1,
+            marginHorizontal: 22
         },
         setings: {
             textAlign: 'center',
@@ -23,9 +24,7 @@ export default function Footer() {
     return (
         <View style={styles.container}>
             <View style={styles.line} />
-            <TouchableOpacity>
-                <Icon name="settings" size={60} style={styles.setings} color={colors.Red1} />
-            </TouchableOpacity>
+            {children}
         </View>
     );
 };

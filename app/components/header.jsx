@@ -20,6 +20,7 @@ export default function Header({title}) {
             height: 5,
             backgroundColor: colors.Red1,
             marginTop: 10,
+            marginHorizontal: 22
         },
     });
     return (

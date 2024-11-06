@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, StatusBar } from "react-native";
 import { useTheme } from '../theme/theme';
 
 export default function Container({ children }) {
@@ -20,7 +20,7 @@ export default function Container({ children }) {
     });
     return (
         <View style={styles.container} >
-            
+            <StatusBar backgroundColor={colors.Red1}/>
             <Image style={styles.img} resizeMode='contain' source={require('./../../assets/images/PATO_FUNDO.png')} />
             {children}
         </View>
