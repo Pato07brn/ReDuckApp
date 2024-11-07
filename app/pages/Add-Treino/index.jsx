@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     actions: {
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         flexDirection: 'row',
         gap: 90,
         marginTop: 20,
