@@ -15,10 +15,9 @@ export default function AddTreino() {
             <StatusBar backgroundColor={colors.Red1} />
             <Header title={'FALA MEU PUTO'} />
             <View style={styles.container}>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <Item>
-
-                    </Item>
+                <ScrollView style={styles.container.Scrool} showsVerticalScrollIndicator={false}>
+                    <Item/>
+                    <Item $Editable/>
                 </ScrollView>
             </View>
             <Footer>
@@ -37,9 +36,14 @@ export default function AddTreino() {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center',
         flex: 1,
-        gap: 10
+        alignItems: 'center',
+        gap: 10,
+        width: "100%",
+        Scrool: {
+            width: "100%", 
+            maxWidth: 550
+        }
     },
     btn: {
         alignItems: 'center'
