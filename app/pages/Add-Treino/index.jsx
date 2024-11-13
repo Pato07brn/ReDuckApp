@@ -17,7 +17,7 @@ export default function AddTreino() {
             <View style={styles.container}>
                 <ScrollView style={styles.container.Scrool} showsVerticalScrollIndicator={false}>
                     <Item/>
-                    <Item $Editable/>
+                    <Item/>
                 </ScrollView>
             </View>
             <Footer>

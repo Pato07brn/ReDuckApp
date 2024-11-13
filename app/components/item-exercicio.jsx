@@ -1,16 +1,23 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import { useTheme } from '../theme/theme';
 
 import Icon from 'react-native-vector-icons/Feather';
 
 
-export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no treino", $Editable }) {
-    const { colors, size } = useTheme();
-    
+export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no treino", med = ['Repetições:', '10'], int = ['Carga', '10kg'] }) {
+    const { colors } = useTheme();
+
     const [titulo, setTitulo] = useState(title)
     const [note, setNote] = useState(nota)
-    
+    const [medida, setMed] = useState(med)
+    const [intensidade, setInt] = useState(int)
+
+    const [editable, setEditable] = useState(false)
+
+    function toggleEditable(state) {
+        setEditable(state)
+    }
 
     const styles = StyleSheet.create({
         container: {
@@ -68,7 +75,7 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
         }
     });
 
-    if ($Editable) {
+    if (editable) {
         return (
             <View style={styles.container}>
                 <View style={styles.top}>
@@ -78,21 +85,21 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
                             <TouchableOpacity onPress={() => { }}>
                                 <Icon name="check-circle" size={35} color={colors.Green} />
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => { }}>
+                            <TouchableOpacity onPress={() => { toggleEditable(false) }}>
                                 <Icon name="x-circle" size={35} color={colors.Ambar} />
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <TextInput style={[styles.corp, styles.editable]} onChangeText={setNote} value={note}/>
+                    <TextInput style={[styles.corp, styles.editable]} onChangeText={setNote} value={note} />
                 </View>
                 <View style={styles.linedown}>
                     <View style={[styles.linedown.itens, styles.linedown.line]}>
-                        <View>Repetições:</View>
-                        <View>20</View>
+                        <TextInput value={medida[0]} style={styles.editable}/>
+                        <TextInput value={medida[1]} />
                     </View>
                     <View style={styles.linedown.itens}>
-                        <View>Carga:</View>
-                        <View>5Kg</View>
+                        <TextInput value={intensidade[0]} />
+                        <TextInput value={intensidade[1]} />
                     </View>
                 </View>
                 <TouchableOpacity onPress={() => { }}>
@@ -105,26 +112,26 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
         <View style={styles.container}>
             <View style={styles.top}>
                 <View style={styles.lineup}>
-                    <Text style={styles.title}>{title}</Text>
+                    <Text style={styles.title}>{titulo}</Text>
                     <View style={styles.actions}>
                         <TouchableOpacity onPress={() => { }}>
                             <Icon name="delete" size={35} color={colors.Ambar} />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { }}>
+                        <TouchableOpacity onPress={() => { toggleEditable(true) }}>
                             <Icon name="edit" size={35} color={colors.Green} />
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={styles.corp}>NOTA: {nota}</Text>
+                <Text style={styles.corp}>NOTA: {note}</Text>
             </View>
             <View style={styles.linedown}>
                 <View style={[styles.linedown.itens, styles.linedown.line]}>
-                    <View>Repetições:</View>
-                    <View>20</View>
+                    <View>{medida[0]}</View>
+                    <View>{medida[1]}</View>
                 </View>
                 <View style={styles.linedown.itens}>
-                    <View>Carga:</View>
-                    <View>5Kg</View>
+                    <View>{intensidade[0]}</View>
+                    <View>{intensidade[1]}</View>
                 </View>
             </View>
             <TouchableOpacity onPress={() => { }}>
