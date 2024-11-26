@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Switch } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import { useTheme } from '../theme/theme';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -13,11 +13,20 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
     const [medida, setMed] = useState(med)
     const [intensidade, setInt] = useState(int)
 
-    const [check, setCheck] = useState(false);
+    const [editable, setEditable] = useState(false)
 
-    function handlerCheck(){
-        check ? setCheck(false) : setCheck(true)
+
+    function toggleEditable(state) {
+        setEditable(state)
     }
+
+    const handleChangeText = (text, index, setArray) => {
+        setArray((prevMed) => {
+            const updatedMed = [...prevMed];
+            updatedMed[index] = text;
+            return updatedMed;
+        });
+    };
 
     const styles = StyleSheet.create({
         container: {
@@ -82,13 +91,52 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
             borderRadius: 10
         }
     });
+
+    if (editable) {
+        return (
+            <View style={styles.container}>
+                <View style={styles.top}>
+                    <View style={styles.lineup}>
+                        <TextInput style={[styles.title, styles.editable]} onChangeText={setTitulo} value={titulo} focusable />
+                        <View style={styles.actions}>
+                            <TouchableOpacity onPress={() => { }}>
+                                <Icon name="check-circle" size={35} color={colors.Green} />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => { toggleEditable(false) }}>
+                                <Icon name="x-circle" size={35} color={colors.Ambar} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <TextInput style={[styles.corp, styles.editable]} onChangeText={setNote} value={note} />
+                </View>
+                <View style={styles.linedown}>
+                    <View style={[styles.linedown.itens, styles.linedown.line]}>
+                        <TextInput value={medida[0]} onChangeText={(text) => handleChangeText(text, 0, setMed)} style={styles.editable} />
+                        <TextInput value={medida[1]} onChangeText={(text) => handleChangeText(text, 1, setMed)} style={styles.editable} />
+                    </View>
+                    <View style={styles.linedown.itens}>
+                        <TextInput value={intensidade[0]} onChangeText={(text) => handleChangeText(text, 0, setInt)} style={styles.editable} />
+                        <TextInput value={intensidade[1]} onChangeText={(text) => handleChangeText(text, 1, setInt)} style={styles.editable} />
+                    </View>
+                </View>
+                <TouchableOpacity onPress={() => { }}>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.top}>
                 <View style={styles.lineup}>
                     <Text style={styles.title}>{titulo}</Text>
                     <View style={styles.actions}>
-                        <Switch value={check} onValueChange={handlerCheck}/>
+                        <TouchableOpacity onPress={() => { }}>
+                            <Icon name="delete" size={35} color={colors.Ambar} />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => { toggleEditable(true) }}>
+                            <Icon name="edit" size={35} color={colors.Green} />
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <Text style={styles.corp}>NOTA: {note}</Text>
@@ -103,6 +151,8 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
                     <Text style={[styles.corp, styles.corp.align]}>{intensidade[1]}</Text>
                 </View>
             </View>
+            <TouchableOpacity onPress={() => { }}>
+            </TouchableOpacity>
         </View>
     )
 }

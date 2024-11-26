@@ -4,7 +4,7 @@ import { useTheme } from "../../theme/theme";
 
 import Icon from 'react-native-vector-icons/Feather';
 import Container from '../../components/container';
-import Item from '../../components/item-exercicio-op';
+import Item from '../../components/item-exercicio';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
 
@@ -16,11 +16,6 @@ export default function AddTreino() {
             <Header title={'Treino 1'} />
             <View style={styles.container}>
                 <ScrollView style={styles.container.Scrool} showsVerticalScrollIndicator={false}>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
                     <Item/>
                 </ScrollView>
             </View>
