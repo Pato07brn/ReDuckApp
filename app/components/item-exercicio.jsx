@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Switch } from "react-native";
+import { StyleSheet, View, Text, Switch } from "react-native";
 import { useTheme } from '../theme/theme';
 
-import Icon from 'react-native-vector-icons/Feather';
-
-
-export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no treino", med = ['Repetições:', '10'], int = ['Carga', '10kg'] }) {
+export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no treino", med = ['Repetições:', '10'], int = ['Carga:', '10kg'] }) {
     const { colors } = useTheme();
 
     const [titulo, setTitulo] = useState(title)
@@ -15,7 +12,7 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
 
     const [check, setCheck] = useState(false);
 
-    function handlerCheck(){
+    function handlerCheck() {
         check ? setCheck(false) : setCheck(true)
     }
 
@@ -29,10 +26,12 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
         },
         title: {
             textAlign: 'left',
-            width: '100%',
-            fontSize: '2em',
+            fontSize: 30,
             color: colors.White,
-            fontWeight: '600'
+            fontWeight: '600',
+            switch: {
+                fontSize: 30,
+            }
         },
         top: {
             borderBottomColor: colors.White,
@@ -41,7 +40,7 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
         lineup: {
             display: 'flex',
             flexDirection: 'row',
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             alignItems: 'center'
         },
         corp: {
@@ -51,7 +50,7 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
             lineHeight: 28,
             marginVertical: 5,
             align: {
-                fontSize: '1em',
+                fontSize: 25,
                 color: colors.White,
                 fontWeight: '600',
                 textAlign: "center"
@@ -88,7 +87,12 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
                 <View style={styles.lineup}>
                     <Text style={styles.title}>{titulo}</Text>
                     <View style={styles.actions}>
-                        <Switch value={check} onValueChange={handlerCheck}/>
+                        <Switch
+                            style={styles.title.switch}
+                            value={check}
+                            onValueChange={handlerCheck}
+                            trackColor={{ false: colors.Ambar, true: colors.Green }}
+                        />
                     </View>
                 </View>
                 <Text style={styles.corp}>NOTA: {note}</Text>

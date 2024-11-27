@@ -38,8 +38,8 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
         },
         title: {
             textAlign: 'left',
-            width: '100%',
-            fontSize: '2em',
+            width: 'auto',
+            fontSize: 30,
             color: colors.White,
             fontWeight: '600'
         },
@@ -60,7 +60,7 @@ export default function Item({ title = "SUPINO RETO", nota = "Evite morrer no tr
             lineHeight: 28,
             marginVertical: 5,
             align: {
-                fontSize: '1em',
+                fontSize: 20,
                 color: colors.White,
                 fontWeight: '600',
                 textAlign: "center"
