@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../../theme/theme";
+import { getTreino } from "../../model/bd"
 
 import Icon from 'react-native-vector-icons/Feather';
 import Container from '../../components/container';
@@ -10,13 +11,21 @@ import Header from '../../components/header';
 
 export default function AddTreino() {
     const { colors } = useTheme();
+    const bd = getTreino(2);
     return (
         <Container>
             <StatusBar backgroundColor={colors.Red1} />
-            <Header title={'Treino 1'} />
+            <Header title={bd.titulo} />
             <View style={styles.container}>
                 <ScrollView style={styles.container.Scrool} showsVerticalScrollIndicator={false}>
-                    <Item/>
+                    {Object.keys(bd.treino).map(key => {
+                        const item = bd.treino[key]
+                        console.log(item);
+                        return(
+                            <Item title={item.titulo} nota={item.nota} int={item.intensidade} med={item.medida} key={key}/>
+                        )
+                    })}
+                    <Item />
                 </ScrollView>
             </View>
             <Footer>
@@ -40,7 +49,7 @@ const styles = StyleSheet.create({
         gap: 10,
         width: "100%",
         Scrool: {
-            width: "100%", 
+            width: "100%",
             maxWidth: 550
         }
     },

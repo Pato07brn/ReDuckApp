@@ -1,0 +1,86 @@
+{
+    "1": {
+        "titulo": "Treino A",
+        "descricao": "Peito, braço",
+        "treino": {
+            "1": {
+                "titulo": "Supino",
+                "nota": "Evite morrer no treino",
+                "medida": [
+                    "Repetição",
+                    "12"
+                ],
+                "intensidade": [
+                    "Carga",
+                    "10kg"
+                ]
+            },
+            "2": {
+                "titulo": "Supino Articulado",
+                "nota": "Evite morrer no treino",
+                "medida": [
+                    "Repetição",
+                    "12"
+                ],
+                "intensidade": [
+                    "Carga",
+                    "10kg"
+                ]
+            },
+            "3": {
+                "titulo": "Desenvolvimento com Haltere",
+                "nota": "Evite morrer no treino",
+                "medida": [
+                    "Repetição",
+                    "12"
+                ],
+                "intensidade": [
+                    "Carga",
+                    "10kg"
+                ]
+            }
+        }
+    },
+    "2": {
+        "titulo": "Treino B",
+        "descricao": "Perna, Panturrilha",
+        "treino": {
+            "1": {
+                "titulo": "Legpress",
+                "nota": "Evite morrer no treino",
+                "medida": [
+                    "Repetição",
+                    "12"
+                ],
+                "intensidade": [
+                    "Carga",
+                    "10kg"
+                ]
+            },
+            "2": {
+                "titulo": "Banco Extensor",
+                "nota": "Evite morrer no treino",
+                "medida": [
+                    "Repetição",
+                    "12"
+                ],
+                "intensidade": [
+                    "Carga",
+                    "10kg"
+                ]
+            },
+            "3": {
+                "titulo": "Agachamento",
+                "nota": "Evite morrer no treino",
+                "medida": [
+                    "Repetição",
+                    "12"
+                ],
+                "intensidade": [
+                    "Carga",
+                    "10kg"
+                ]
+            }
+        }
+    }
+}

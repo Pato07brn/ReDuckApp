@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, StatusBar, TouchableOpacity } from "react-native";
 import { useTheme } from "../../theme/theme";
+import { getBd } from "../../model/bd";
 
 import Icon from "react-native-vector-icons/Feather";
 import Header from '../../components/header';
@@ -11,15 +12,23 @@ import ItemTreino from '../../components/item-treino';
 
 export default function Home() {
     const { colors } = useTheme();
+    const bd = getBd();
     return (
         <Container>
             <StatusBar backgroundColor={colors.Red1} />
             <Header title={'FALA MEU PUTO'} />
             <View style={styles.container}>
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <ItemTreino title={'TREINO A'} description={"DESCRIÇÃO: PEITO, OMBRO,BÍCEPS"} exerc={"EXERCÍCIOS: SUPINO RETO, SUPINO INCLINADO..."} />
-                    <ItemTreino title={'TREINO B'} description={"DESCRIÇÃO: TRÍCEPS, ABDOMEN, COSTA"} exerc={"EXERCÍCIOS: TRÍCEPS NO APARELHO, ELEVAÇÃO LATERAL..."} />
-                    <ItemTreino title={'TREINO C'} description={"DESCRIÇÃO: PERNA, QUADRÍCEPS, PANTURRILHA.."} exerc={"EXERCÍCIOS: LEGPRESS, BANCO ADUTOR, CADEIRA EXTENSORA..."} />
+                    {Object.keys(bd).map(key => {
+                        const treino = bd[key];
+                        let treinoExerc = []
+                        Object.values(treino.treino).forEach(exercicio => {
+                            treinoExerc.push(exercicio.titulo + ", ")
+                        });
+                        return (
+                            <ItemTreino title={treino.titulo} description={treino.descricao} exerc={treinoExerc} id={treino.id} key={key} />
+                        )
+                    })}
                     <View style={styles.btn}>
                         <BtnTreino title={"Novo Treino"} onPress={() => { }} />
                     </View>

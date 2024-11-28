@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { useTheme } from '../theme/theme';
 
-export default function Container({ title, description, exerc }) {
+export default function Container({ title, description, exerc, id }) {
     const { colors, size } = useTheme();
     const styles = StyleSheet.create({
         container: {
@@ -39,8 +39,8 @@ export default function Container({ title, description, exerc }) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.corp}>{description}</Text>
-            <Text style={styles.corp}>{exerc}</Text>
+            <Text style={styles.corp}>Descrição: {description}.</Text>
+            <Text style={styles.corp}>Exercícios: {exerc}.</Text>
             <TouchableOpacity onPress={()=>{}}>
                 <Text style={styles.btn}>ACESSAR</Text>
             </TouchableOpacity>
