@@ -1,18 +1,26 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, StatusBar, TouchableOpacity } from "react-native";
-import { useTheme } from "../../theme/theme";
+import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from "react-native";
 import { getBd } from "../../model/bd";
+import { useTheme } from "../../theme/theme";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 import Icon from "react-native-vector-icons/Feather";
-import Header from '../../components/header';
-import Container from '../../components/container';
 import BtnTreino from '../../components/btn-treino-novo';
+import Container from '../../components/container';
 import Footer from '../../components/footer';
+import Header from '../../components/header';
 import ItemTreino from '../../components/item-treino';
 
-export default function Home() {
+export default function Home({ navigation }) {
     const { colors } = useTheme();
     const bd = getBd();
+
+    function routeBtn(id) {
+        navigation.navigate('Treino', {idTreino: id})
+    }
+
     return (
         <Container>
             <StatusBar backgroundColor={colors.Red1} />
@@ -26,7 +34,7 @@ export default function Home() {
                             treinoExerc.push(exercicio.titulo + ", ")
                         });
                         return (
-                            <ItemTreino title={treino.titulo} description={treino.descricao} exerc={treinoExerc} id={treino.id} key={key} />
+                            <ItemTreino title={treino.titulo} description={treino.descricao} exerc={treinoExerc} id={treino.id} key={key} route={() => routeBtn(key)}/>
                         )
                     })}
                     <View style={styles.btn}>

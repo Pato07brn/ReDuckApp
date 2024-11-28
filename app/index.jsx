@@ -12,7 +12,7 @@ import Treino from "./pages/Treino";
 export default function Index() {
   return (
     <ThemeProvider>
-      <Stack.Navigator screenOptions={false} >
+      <Stack.Navigator initialRouteName='Home' >
         <Stack.Screen
           name='Home'
           component={Home}

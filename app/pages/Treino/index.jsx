@@ -1,17 +1,21 @@
-import React from 'react';
 import { ScrollView, StatusBar, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../../theme/theme";
 import { getTreino } from "../../model/bd"
 
+import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import Container from '../../components/container';
 import Item from '../../components/item-exercicio';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
 
-export default function AddTreino() {
+export default function Treino({ route, navigation }) {
+
+    const { idTreino } = route.params
+
     const { colors } = useTheme();
-    const bd = getTreino(2);
+    const bd = getTreino(idTreino);
+
     return (
         <Container>
             <StatusBar backgroundColor={colors.Red1} />
@@ -20,9 +24,9 @@ export default function AddTreino() {
                 <ScrollView style={styles.container.Scrool} showsVerticalScrollIndicator={false}>
                     {Object.keys(bd.treino).map(key => {
                         const item = bd.treino[key]
-                        console.log(item);
-                        return(
-                            <Item title={item.titulo} nota={item.nota} int={item.intensidade} med={item.medida} key={key}/>
+                        console.log(idTreino);
+                        return (
+                            <Item title={item.titulo} nota={item.nota} int={item.intensidade} med={item.medida} key={key} />
                         )
                     })}
                     <Item />
@@ -30,10 +34,10 @@ export default function AddTreino() {
             </View>
             <Footer>
                 <View style={styles.actions}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("Home")}>
                         <Icon name="check-circle" size={60} color={colors.Green} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("Home")}>
                         <Icon name="x-circle" size={60} color={colors.Ambar} />
                     </TouchableOpacity>
                 </View>
